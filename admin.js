@@ -1,0 +1,2 @@
+async function updateStatus(table,id,status){const r=await fetch('/admin/status',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({table,id,status})});if(!r.ok)alert('Unable to update status.');}
+async function deleteHelp(id){if(!confirm('Delete this help request?'))return;const r=await fetch('/admin/delete-help',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id})});if(r.ok)location.reload();}
