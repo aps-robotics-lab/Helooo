@@ -1,0 +1,1 @@
+(() => { const saved=JSON.parse(localStorage.getItem('robokriti_home_overrides')||'null'); if(!saved)return; Object.entries(saved).forEach(([id,text])=>{const el=document.getElementById(id);if(el)el.textContent=text}); })();
