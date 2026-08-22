@@ -1,0 +1,51 @@
+{% extends "base.html" %}{% block title %}APS Tinkering Lab RoboKriti 2026{% endblock %}
+{% block content %}
+<main>
+<section class="hero" id="home">
+<div class="hero-bg"></div><div class="scan"></div>
+<div class="hero-copy"><span class="eyebrow">APS TINKERING LAB // LUCKNOW // 2026</span>
+<h1>BUILD.<br><em>BATTLE.</em><br>INNOVATE.</h1>
+<p>{{ settings.hero_description }}</p>
+<div class="actions"><a class="btn primary" href="#championship">EXPLORE CHAMPIONSHIP ↗</a><a class="btn secondary" href="#events">EXPLORE ARENAS ↓</a></div>
+<div class="stats"><span><b>01</b> SCHOOL LEVEL</span><span><b>04</b> ROBOTICS ARENAS</span><span><b>01</b> CHAMPIONSHIP</span></div></div>
+<div class="robot-orb"><div class="orb-ring r1"></div><div class="orb-ring r2"></div><div class="orb-core">R</div><span class="orb-label">ROBOTICS / CORE</span></div>
+</section>
+<section class="phase"><div><small>01</small><b>ORIGIN</b><span>Born inside the APS Tinkering Lab</span></div><div><small>02</small><b>ARENAS</b><span>Four machines. Four challenges.</span></div><div><small>03</small><b>MISSION</b><span>Build, test, compete, learn.</span></div><div><small>04</small><b>SUPPORT</b><span>Registration & participant help.</span></div></section>
+
+<section class="section" id="about"><div class="section-title"><span>PHASE_01 // ORIGIN</span><h2>Where ideas become <em>machines.</em></h2><p>APS Tinkering Lab Robokriti 2026 is a hands-on robotics competition designed to encourage creativity, engineering, teamwork and problem solving.</p></div>
+<div class="split"><div class="giant">01</div><div><h3>APS Tinkering Lab</h3><p>Our championship is built around experimentation: prototype, test, improve and compete. Every arena rewards a different engineering mindset.</p><div class="chips"><span>ENGINEERING</span><span>CONTROL</span><span>STRATEGY</span><span>TEAMWORK</span></div></div></div></section>
+
+<section class="section" id="events"><div class="section-title"><span>PHASE_02 // ARENAS</span><h2>Choose your <em>battlefield.</em></h2><p>Explore the event, understand the rules and prepare your machine.</p></div>
+<div class="cards">
+{% for slug,name,type,desc in [
+('robo-race','Robo Race','SPEED / PRECISION','Push acceleration, control and line discipline through a demanding robotic track.'),
+('robo-soccer','Robo Soccer','CONTROL / TEAMWORK','Master robotic movement and scoring through controlled, tactical gameplay.'),
+('robot-tug-of-war','Robot Tug of War','POWER / TRACTION','Torque, grip and mechanical strength decide who controls the line.'),
+('robo-war','Robo War','STRATEGY / COMBAT','Engineer a robust machine and outmaneuver your opponent inside the arena.')
+] %}
+<a class="card" href="{{ url_for('event',slug=slug) }}"><span>{{ "%02d"|format(loop.index) }}</span><small>{{ type }}</small><h3>{{ name }}</h3><p>{{ desc }}</p><b>ENTER ARENA ↗</b></a>
+{% endfor %}</div></section>
+
+<section class="section leadership" id="team"><div class="section-title"><span>PHASE_03 // LEADERSHIP</span><h2>The people behind <em>the mission.</em></h2></div>
+<div class="people"><article><span>PRINCIPAL</span><h3>Mrs. Sadhana Devi</h3><p>Army Public School Lal Bahadur Shastri Marg, Lucknow</p><hr><small>VISION / DISCIPLINE / EXCELLENCE</small></article><article><span>MENTOR // TINKERING LAB</span><h3>Ms. Akansha Rani</h3><p>APS Tinkering Lab</p><hr><small>GUIDANCE / INNOVATION / MENTORSHIP</small></article></div>
+<div class="people command">{% for role,name,desc in [
+('Event Coordinator','Mohit Singh Kushwaha','Robo Race briefing, inspection, track readiness and rounds.'),
+('Event Coordinator','Bidit Singh','Robo Soccer briefing, match flow, scoring and arena readiness.'),
+('Event Coordinator','Vaibhav Singh Pandey','Robo War safety inspection, match flow and judging.'),
+('Event Coordinator','Vaishnav','Tug of War inspection, pairings and competition procedure.'),
+('Secretary','Aishwary Joshi','Official records, communication and administration.'),
+('Event Coordinator','Meet Lohmar','Scheduling, event operations and overall execution.'),
+('Technical Head','Ayush Singh Rajput','Technical inspection, specifications and engineering support.'),
+('Marketing Head','Prateek Maurya','Promotion, communication, media and outreach.')
+] %}<article><small>{{ role }}</small><h3>{{ name }}</h3><p>{{ desc }}</p></article>{% endfor %}</div></section>
+
+<section class="section" id="operations"><div class="section-title"><span>PHASE_04 // OPERATIONS</span><h2>Precision behind <em>the spectacle.</em></h2></div><div class="ops">{% for n,title,text in [('01','Event Command','Maintain coordination, inspection and operational readiness.'),('02','Arena Network','Four dedicated event channels keep every arena synchronized.'),('03','Digital Command','Registration, information and participant support in one web layer.'),('04','Human Support','A clear route for questions, help and official communication.')] %}<article><b>OPS_{{ n }}</b><h3>{{ title }}</h3><p>{{ text }}</p></article>{% endfor %}</div></section>
+
+<section class="section"><div class="section-title"><span>PHASE_05 // THE JOURNEY</span><h2>From registration to <em>arena.</em></h2></div><div class="journey">{% for n,t,d in [('01','REGISTER','Build your team and select your arena.'),('02','BUILD','Engineer and test your machine.'),('03','INSPECT','Pass technical and safety inspection.'),('04','COMPETE','Enter the arena and make your mark.')] %}<div><b>{{ n }}</b><strong>{{ t }}</strong><p>{{ d }}</p></div>{% endfor %}</div></section>
+
+<section class="messages"><div class="quote">“</div><h2>Build responsibly.<br><em>Compete respectfully.</em></h2><p>Design boldly, test patiently and learn from every failure. Your robot is a record of teamwork, curiosity and problem-solving.</p><strong>APS Tinkering Lab RoboKriti Team</strong></section>
+<section class="section contact"><div class="section-title"><span>PHASE_06 // CONTACT</span><h2>Connect with <em>the championship.</em></h2></div><div class="contact-grid"><div><small>SCHOOL</small><h3>Army Public School Lal Bahadur Shastri Marg</h3><p>Lucknow, Uttar Pradesh, India</p></div><div><small>MENTOR</small><h3>raniakansha551@gmail.com</h3><p>APS Tinkering Lab</p></div><div><small>HELPING DEPARTMENT</small><h3>Participant Support</h3><p>Support is handled through the authorised department.</p></div></div></section>
+<section class="section" id="championship"><div class="section-title"><span>PUBLIC ACCESS // CHAMPIONSHIP</span><h2>Build. Battle. <em>Innovate.</em></h2><p>Explore the championship, arenas, rules and team information publicly. Registration and Help departments are intentionally private and are available only through authorised department login.</p></div><div class="contact-grid"><div><small>PUBLIC</small><h3>Championship Information</h3><p>Events, rules, leadership and operational information are available from the main website.</p></div><div><small>PRIVATE</small><h3>Registration Department</h3><p>Authorised staff login required. The department is not linked from the public navigation.</p></div><div><small>PRIVATE</small><h3>Help Department</h3><p>Authorised staff login required. The department is not linked from the public navigation.</p></div></div></section>
+<section class="cta"><span>THE JOURNEY STARTS HERE</span><h2>Ready to <em>build the future?</em></h2><a class="btn primary" href="#contact">CONTACT CHAMPIONSHIP ↗</a></section>
+</main>
+{% endblock %}

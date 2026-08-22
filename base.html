@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#05060a">
+<title>{% block title %}APS Tinkering Lab RoboKriti 2026{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+<div class="noise"></div>
+<header class="nav" id="nav">
+<a class="brand" href="{{ url_for('home') }}"><span class="brand-mark">RK</span><span><b>APS Tinkering Lab</b><small>RoboKriti 2026</small></span></a>
+<button class="menu" id="menu" aria-label="Open navigation">☰</button>
+<nav id="links"><a href="{{ url_for('home') }}#about">About</a><a href="{{ url_for('home') }}#events">Arenas</a><a href="{{ url_for('home') }}#team">Team</a><a href="{{ url_for('rules') }}">Rules</a><a href="{{ url_for('home') }}#contact">Contact</a><a class="nav-cta" href="{{ url_for('home') }}#championship">Explore</a></nav>
+</header>
+{% block content %}{% endblock %}
+<footer><div><strong>APS Tinkering Lab RoboKriti 2026</strong><span>Army Public School Lal Bahadur Shastri Marg • Lucknow</span></div><div class="online"><i></i> SYSTEM ONLINE</div></footer>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body></html>
