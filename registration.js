@@ -62,4 +62,4 @@ form?.addEventListener("submit",async e=>{
     successRegistrationId.textContent=out.registrationId; successOverlay.classList.remove("hidden");
   }catch(err){msg(err.message,"error");submitBtn.disabled=false;submitBtn.innerHTML='Submit Registration <i class="fa-solid fa-arrow-right"></i>';}
 });
-continueBtn?.addEventListener("click",()=>location.href="thankyou.html");
+continueBtn?.addEventListener("click",()=>location.href="/thank-you/");

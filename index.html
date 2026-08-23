@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="production.css">
 <link rel="manifest" href="site.webmanifest">
+
+<link rel="stylesheet" href="/premium-ui.css">
+<link rel="stylesheet" href="/nova-ui.css">
 </head>
 <body>
 <div id="preloader" class="preloader"><div class="loader-core"><span></span><span></span><span></span></div><div class="loader-title">APS TINKERING LAB ROBOKRITI</div><div class="loader-sub"> • 2026 // INITIALIZING</div></div>
@@ -20,7 +23,7 @@
   <a class="brand" href="#home"><img src="https://i.ibb.co/60g82LzR/Army-Welfare-Education-Society-logo-1.png" alt="APS Logo"><span><b>APS Tinkering Lab</b><small>RoboKriti 2026</small></span></a>
   <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   <nav id="mainNav" aria-label="Main navigation">
-    <a class="active" href="#home">Home</a><a href="#about">About</a><a href="#events">Arenas</a><a href="#leadership">Leadership</a><a href="#team">Our Team</a><a href="#operations">Operations</a><a href="#contact">Contact</a><a class="nav-register" href="registration.html">Register</a>
+    <a class="active" href="#home">Home</a><a href="#about">About</a><a href="#events">Arenas</a><a href="#leadership">Leadership</a><a href="#team">Our Team</a><a href="#operations">Operations</a><a href="#contact">Contact</a><a class="nav-register" href="/registration/">Register</a>
   </nav>
 </header>
 
@@ -32,7 +35,7 @@
     <div class="hero-kicker">A FUTURE-TECH ROBOTICS FESTIVAL</div>
     <h1 id="adminHomeTitle">BUILD.<br><span>BATTLE.</span><br>INNOVATE.</h1>
     <p id="adminHomeDescription">Design machines. Engineer solutions. Enter the arena. APS Tinkering Lab Robokriti 2026 brings young innovators together for a high-energy robotics experience built around speed, control, power and strategy.</p>
-    <div class="hero-actions"><a class="btn primary" href="registration.html" id="adminHomeButton">REGISTER YOUR TEAM <span>↗</span></a><a class="btn ghost" href="#events">EXPLORE THE ARENAS <span>↓</span></a></div>
+    <div class="hero-actions"><a class="btn primary" href="/registration/" id="adminHomeButton">REGISTER YOUR TEAM <span>↗</span></a><a class="btn ghost" href="#events">EXPLORE THE ARENAS <span>↓</span></a></div>
     <div class="hero-meta"><span>01 // SCHOOL LEVEL</span><span>04 // ROBOTICS ARENAS</span><span>01 // CHAMPIONSHIP</span></div>
   </div>
   <div class="hero-visual" aria-hidden="true"><div class="visual-label">SYSTEM / ROBOTICS</div><div class="visual-core"><span>R</span></div><div class="visual-line line-1"></div><div class="visual-line line-2"></div><div class="visual-line line-3"></div></div>
@@ -48,10 +51,10 @@
 <section id="events" class="section arenas-section">
   <div class="section-head"><span>PHASE_02 // ARENAS OF EXCELLENCE</span><h2>Choose your <b>battlefield.</b></h2><p>Explore each arena, read its dedicated rules and prepare your machine before registration.</p></div>
   <div class="arena-grid">
-    <a class="arena-card arena-race" href="robo-race-rules.html"><span class="arena-index">01</span><span class="arena-type">SPEED / PRECISION</span><h3>Robo Race</h3><p>Push acceleration, control and line discipline through a demanding robotic track.</p><span class="arena-link">ENTER ARENA ↗</span></a>
-    <a class="arena-card arena-saucer" href="robo-soccer-rules.html"><span class="arena-index">02</span><span class="arena-type">CONTROL / TEAMWORK</span><h3>Robo Soccer</h3><p>Master robotic movement and scoring through controlled, tactical gameplay.</p><span class="arena-link">ENTER ARENA ↗</span></a>
-    <a class="arena-card arena-tug" href="robot-tug-of-war-rules.html"><span class="arena-index">03</span><span class="arena-type">POWER / TRACTION</span><h3>Robot Tug of War</h3><p>Torque, grip and mechanical strength decide who controls the line.</p><span class="arena-link">ENTER ARENA ↗</span></a>
-    <a class="arena-card arena-war" href="robo-war-rules.html"><span class="arena-index">04</span><span class="arena-type">STRATEGY / COMBAT</span><h3>Robo War</h3><p>Engineer a robust machine and outmaneuver your opponent inside the arena.</p><span class="arena-link">ENTER ARENA ↗</span></a>
+    <a class="arena-card arena-race" href="/arenas/robo-race/"><span class="arena-index">01</span><span class="arena-type">SPEED / PRECISION</span><h3>Robo Race</h3><p>Push acceleration, control and line discipline through a demanding robotic track.</p><span class="arena-link">ENTER ARENA ↗</span></a>
+    <a class="arena-card arena-saucer" href="/arenas/robo-soccer/"><span class="arena-index">02</span><span class="arena-type">CONTROL / TEAMWORK</span><h3>Robo Soccer</h3><p>Master robotic movement and scoring through controlled, tactical gameplay.</p><span class="arena-link">ENTER ARENA ↗</span></a>
+    <a class="arena-card arena-tug" href="/arenas/robot-tug-of-war/"><span class="arena-index">03</span><span class="arena-type">POWER / TRACTION</span><h3>Robot Tug of War</h3><p>Torque, grip and mechanical strength decide who controls the line.</p><span class="arena-link">ENTER ARENA ↗</span></a>
+    <a class="arena-card arena-war" href="/arenas/robo-war/"><span class="arena-index">04</span><span class="arena-type">STRATEGY / COMBAT</span><h3>Robo War</h3><p>Engineer a robust machine and outmaneuver your opponent inside the arena.</p><span class="arena-link">ENTER ARENA ↗</span></a>
   </div>
 </section>
 
@@ -95,14 +98,17 @@
 <section class="section message-section"><div class="section-head"><span>MESSAGE_03 // COORDINATION</span><h2>A message from <b>the Coordinator.</b></h2></div><div class="mentor-message"><div class="message-mark">“</div><div><p class="quote" id="msgCoordText">Loading message...</p><div class="mentor-sign"><strong id="msgCoordName">Championship Coordination Team</strong><span>Championship Coordination</span></div></div></div></section>
 </div>
 
-<section id="contact" class="section contact-section"><div class="section-head"><span>PHASE_07 // CONTACT</span><h2>Connect with <b>the championship.</b></h2><p>Questions, registration support and event information are available through the official departments.</p></div><div class="contact-grid"><div class="contact-card"><small>SCHOOL</small><h3>Army Public School Lal Bahadur Shastri Marg</h3><p>Lucknow, Uttar Pradesh, India</p></div><div class="contact-card"><small>MENTOR • AKANSHA RANI</small><h3><a href="mailto:raniakansha551@gmail.com">raniakansha551@gmail.com</a></h3><p>APS Tinkering Lab</p></div><div class="contact-card"><small>HELPING DEPARTMENT</small><h3><a href="help.html">Open Help Center</a></h3><p>Submit a support request and receive a ticket ID.</p></div></div></section>
+<section id="contact" class="section contact-section"><div class="section-head"><span>PHASE_07 // CONTACT</span><h2>Connect with <b>the championship.</b></h2><p>Questions, registration support and event information are available through the official departments.</p></div><div class="contact-grid"><div class="contact-card"><small>SCHOOL</small><h3>Army Public School Lal Bahadur Shastri Marg</h3><p>Lucknow, Uttar Pradesh, India</p></div><div class="contact-card"><small>MENTOR • AKANSHA RANI</small><h3><a href="mailto:raniakansha551@gmail.com">raniakansha551@gmail.com</a></h3><p>APS Tinkering Lab</p></div><div class="contact-card"><small>HELPING DEPARTMENT</small><h3><a href="/help/">Open Help Center</a></h3><p>Submit a support request and receive a ticket ID.</p></div></div></section>
 
-<section class="final-cta"><div class="cta-grid"></div><span>THE JOURNEY CONCLUDES HERE</span><h2>Ready to <b>build the future?</b></h2><p>Register your team and choose the arena where your robot will compete.</p><a class="btn primary large" href="registration.html">REGISTER FOR RoboKriti 2026 ↗</a></section>
+<section class="final-cta"><div class="cta-grid"></div><span>THE JOURNEY CONCLUDES HERE</span><h2>Ready to <b>build the future?</b></h2><p>Register your team and choose the arena where your robot will compete.</p><a class="btn primary large" href="/registration/">REGISTER FOR RoboKriti 2026 ↗</a></section>
 </main>
 
 <footer class="footer" id="secretFooterTrigger" tabindex="0" aria-label="APS Robotics footer"><img src="https://i.ibb.co/60g82LzR/Army-Welfare-Education-Society-logo-1.png" alt="APS Logo"><div><b>APS Tinkering Lab Robokriti 2026</b><span>APS Tinkering Lab • Lucknow</span></div><div class="footer-status"><i></i> SYSTEM ONLINE</div></footer>
-<div id="secretAccess" class="secret-access" aria-hidden="true"><span>PRIVATE ACCESS // 5-CLICK</span><a href="agent-login.html">Helping Department</a><a href="admin-login.html">Registration Department</a><button id="closeSecret">×</button></div>
+<div id="secretAccess" class="secret-access" aria-hidden="true"><span>PRIVATE ACCESS // 5-CLICK</span><a href="/_private/helping/">Helping Department</a><a href="/_private/registration/">Registration Department</a><button id="closeSecret">×</button></div>
 <script type="module" src="home-content.js"></script>
 <script src="production.js"></script>
+
+<script src="/premium-ui.js" defer></script>
+<script src="/nova-ui.js" defer></script>
 </body>
 </html>

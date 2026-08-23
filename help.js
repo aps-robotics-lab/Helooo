@@ -15,7 +15,7 @@ form?.addEventListener("submit",async e=>{
  const data=Object.fromEntries(new FormData(form).entries());
  try{
   const out=RoboDB.addTicket(data);
-  location.href=`help-thankyou.html?ref=${encodeURIComponent(out.referenceId)}`;
+  location.href=`/help/thank-you/?ref=${encodeURIComponent(out.referenceId)}`;
  }catch(err){status(err.message,"error");submitBtn.disabled=false;submitText.classList.remove("hidden");submitLoading.classList.add("hidden");}
 });
 trackerForm?.addEventListener("submit",async e=>{
