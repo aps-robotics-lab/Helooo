@@ -8,6 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="registration.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>(function(){emailjs.init({publicKey:"GnxniZ70ndujyjDpe"});})();</script>
 <link rel="stylesheet" href="production.css">
 <link rel="manifest" href="site.webmanifest">
 </head>
@@ -74,7 +76,7 @@
 </div></main>
 
 <div id="successOverlay" class="success-overlay hidden"><div class="success-box"><div class="success-icon"><i class="fa-solid fa-check"></i></div><h2>Registration Successful</h2><p>Your registration has been received and is <strong>Pending Approval</strong>.</p><div class="approval-note"><i class="fa-solid fa-clock"></i><span>Our team will review your registration and contact you soon.</span></div><div class="registration-id-box"><span>REGISTRATION ID</span><strong id="successRegistrationId"></strong></div><p class="small-note">Save this ID. You may use it later when contacting the Help Center.</p><button id="continueBtn" class="btn primary">Continue <i class="fa-solid fa-arrow-right"></i></button></div></div>
-<script src="db.js"></script><script src="registration.js"></script>
+<script type="module" src="registration.js"></script>
 <script src="production.js"></script>
 </body>
 </html>

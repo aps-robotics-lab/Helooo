@@ -1,1 +1,149 @@
-document.getElementById('registrationForm')?.addEventListener('submit',async e=>{e.preventDefault();const f=new FormData(e.currentTarget);const events=f.getAll('events');if(!events.length){showMsg('Select at least one event.','error');return}const data=Object.fromEntries(f.entries());data.events=events;data.members=(data.members||'').split('\n').map(x=>x.trim()).filter(Boolean);try{const r=await submitJSON('/api/register',data);document.getElementById('registrationForm').classList.add('hidden');const s=document.getElementById('success');s.classList.remove('hidden');s.innerHTML=`<div class="notice"><strong>Registration successful.</strong><br>Your registration has been received and is Pending Approval.<br><br><strong>Registration ID: ${r.id}</strong><br>Save this ID for future help requests.</div>`}catch(err){showMsg(err.message,'error')}});function showMsg(t,c){const m=document.getElementById('formMessage');m.className=c;m.textContent=t;m.classList.remove('hidden')}
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+import { getDatabase, ref, push, set, update } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-database.js";
+import { mainFirebaseConfig } from "./firebase-config.js";
+
+const app = initializeApp(mainFirebaseConfig);
+const db = getDatabase(app);
+const auth = getAuth(app);
+const form = document.getElementById("registrationForm");
+const submitBtn = document.getElementById("submitBtn");
+const formMessage = document.getElementById("formMessage");
+const successOverlay = document.getElementById("successOverlay");
+const successRegistrationId = document.getElementById("successRegistrationId");
+const continueBtn = document.getElementById("continueBtn");
+const eventError = document.getElementById("eventError");
+const membersSection = document.getElementById("membersSection");
+const memberCards = document.getElementById("memberCards");
+const memberInstruction = document.getElementById("memberInstruction");
+
+const getValue = id => document.getElementById(id)?.value.trim() || "";
+const getTeamSize = () => Number(document.querySelector('input[name="TeamSize"]:checked')?.value || 1);
+const getSelectedEvents = () => [...document.querySelectorAll('input[name="Events"]:checked')].map(x => x.value);
+const generateId = () => `APS-RBC-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
+const showMessage = (msg, type="error") => { formMessage.textContent = msg; formMessage.className = `form-message ${type}`; };
+
+function createMemberCard(number) {
+  const card = document.createElement("div");
+  card.className = "member-card additional-member";
+  card.dataset.member = number;
+  card.innerHTML = `<div class="member-card-title"><span>MEMBER ${number}</span><strong>Participant ${number}</strong></div>
+  <div class="field-grid">
+    <div class="field full-field"><label for="member${number}Name">Full Name <span>*</span></label><input type="text" id="member${number}Name"></div>
+    <div class="field"><label for="member${number}Class">Class <span>*</span></label><select id="member${number}Class"><option value="">Select</option><option>VI</option><option>VII</option><option>VIII</option><option>IX</option><option>X</option><option>XI</option><option>XII</option></select></div>
+    <div class="field"><label for="member${number}Section">Section <span>*</span></label><input type="text" id="member${number}Section" maxlength="5"></div>
+  </div>`;
+  return card;
+}
+
+function updateMembers() {
+  const size = getTeamSize();
+  document.getElementById("participationType").value = size === 1 ? "Solo" : `Team of ${size}`;
+  const team = size > 1;
+  membersSection.hidden = !team;
+  memberInstruction.textContent = team ? `This team has ${size} participants. Enter details for members 2–${size}.` : "Solo participation selected.";
+  memberCards.replaceChildren();
+  for (let i = 2; i <= size; i++) {
+    const card = createMemberCard(i);
+    memberCards.appendChild(card);
+    ["Name","Class","Section"].forEach(part => { const el = document.getElementById(`member${i}${part}`); if (el) el.required = true; });
+  }
+}
+
+document.querySelectorAll('input[name="TeamSize"]').forEach(input => input.addEventListener("change", updateMembers));
+document.getElementById("mobileNumber")?.addEventListener("input", e => e.target.value = e.target.value.replace(/\D/g, "").slice(0,10));
+document.getElementById("emailAddress")?.addEventListener("blur", e => e.target.value = e.target.value.trim().toLowerCase());
+
+document.querySelectorAll('input[name="Events"]').forEach(input => input.addEventListener("change", () => { if (getSelectedEvents().length) eventError.textContent = ""; }));
+
+form?.addEventListener("submit", async e => {
+  e.preventDefault();
+  eventError.textContent = "";
+  showMessage("");
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  const events = getSelectedEvents();
+  if (!events.length) { eventError.textContent = "Please select at least one event."; document.getElementById("eventsSection").scrollIntoView({behavior:"smooth"}); return; }
+  const phone = getValue("mobileNumber");
+  if (!/^[6-9]\d{9}$/.test(phone)) { showMessage("Enter a valid 10-digit Indian mobile number."); return; }
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+  try {
+    /* Anonymous auth is preferred because the Firebase rules can require an
+       authenticated writer. If Anonymous Authentication is disabled, continue
+       anyway so projects with public registration writes still work. */
+    if (!auth.currentUser) {
+      try {
+        await signInAnonymously(auth);
+      } catch (authError) {
+        console.warn("Anonymous registration auth unavailable:", authError);
+        if (authError?.code !== "auth/operation-not-allowed" && authError?.code !== "auth/admin-restricted-operation") {
+          throw authError;
+        }
+      }
+    }
+    const teamSize = getTeamSize();
+    const registrationId = generateId();
+    const data = {
+      registrationId,
+      TeamSize: teamSize,
+      ParticipationType: teamSize === 1 ? "Solo" : `Team of ${teamSize}`,
+      StudentName: getValue("studentName"),
+      Class: getValue("studentClass"),
+      Section: getValue("studentSection").toUpperCase(),
+      MobileNumber: phone,
+      EmailAddress: getValue("emailAddress").toLowerCase(),
+      TeamName: getValue("teamName"),
+      Events: events,
+      Remarks: getValue("remarks"),
+      status: "Pending Approval",
+      statusNote: "Our team will review your registration and contact you soon.",
+      createdBy: auth.currentUser.uid,
+      createdAt: Date.now(),
+      timestamp: Date.now()
+    };
+    for (let i=2;i<=teamSize;i++) {
+      data[`Member${i}Name`] = getValue(`member${i}Name`);
+      data[`Member${i}Class`] = getValue(`member${i}Class`);
+      data[`Member${i}Section`] = getValue(`member${i}Section`).toUpperCase();
+    }
+    const registrationRef = push(ref(db,"registrations"));
+
+    /* Write the registration first. This is intentionally a single-path write
+       because many Firebase Realtime Database rule sets permit /registrations
+       but do not permit the secondary status-lookup path. */
+    await set(registrationRef, data);
+
+    /* Secondary lookup is useful for support tracking, but must never make a
+       successful registration look like a failure. */
+    try {
+      await set(ref(db, `registrationStatusLookup/${registrationId}`), {
+        registrationId,
+        status: "Pending Approval",
+        statusNote: "Our team will review your registration and contact you soon.",
+        updatedAt: Date.now()
+      });
+    } catch (lookupError) {
+      console.warn("Status lookup write skipped:", lookupError);
+    }
+    if (window.emailjs) emailjs.send("service_5m4uzhb","template_5qb8b2p",data).catch(()=>{});
+    sessionStorage.setItem("apsRegistrationId", data.registrationId);
+    sessionStorage.setItem("apsRegistrationName", data.StudentName);
+    successRegistrationId.textContent = data.registrationId;
+    successOverlay.classList.remove("hidden");
+  } catch (err) {
+    console.error("REGISTRATION SUBMISSION FAILED:", err);
+    let message = "Registration could not be submitted.";
+    if (err?.code === "PERMISSION_DENIED" || err?.code === "database/permission-denied") {
+      message = "Firebase denied this registration. Enable Anonymous Authentication or allow authenticated/public writes to /registrations in Realtime Database Rules.";
+    } else if (err?.code === "auth/network-request-failed" || err?.code === "NETWORK_ERROR") {
+      message = "Network error. Please check your internet connection.";
+    } else if (err?.message) {
+      message = `${message} ${err.message}`;
+    }
+    showMessage(message);
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'Submit Registration <i class="fa-solid fa-arrow-right"></i>';
+  }
+});
+continueBtn?.addEventListener("click", () => location.href="thankyou.html");
+updateMembers();

@@ -1,1 +1,136 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Registration Department Portal</title><link rel="stylesheet" href="portal.css"></head><body class="portal-bg"><main class="login-card"><div class="eyebrow">APS TINKERING LAB // ROBOKRITI 2026</div><h1>Registration <span>Portal</span></h1><p>Authorized access only.</p><div id="error" class="error" hidden></div><form id="login"><label>Access ID<input name="username" required autocomplete="username"></label><label>Access Key<input type="password" name="password" required autocomplete="current-password"></label><button>Sign in ↗</button></form><a class="back" href="index.html">← Back to public site</a></main><script>document.getElementById('login').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);if(f.get('username')==='registration'&&f.get('password')==='RoboKriti@2026'){sessionStorage.setItem('rkRole','admin');location.href='portal.html?role=admin'}else{error.hidden=false;error.textContent='Invalid access credentials.'}}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#020607">
+
+<title>Registration Department Login | APS Tinkering Lab Robokriti 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet" href="admin-login.css">
+<link rel="stylesheet" href="production.css">
+<link rel="manifest" href="site.webmanifest">
+</head>
+
+<body>
+
+<div class="background">
+    <div class="grid"></div>
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+</div>
+
+<div id="loadingScreen" class="loading-screen">
+    <div class="loader-ring"></div>
+    <h2>CHECKING SESSION</h2>
+    <p>Verifying registration department access...</p>
+</div>
+
+<main class="login-main hidden" id="loginMain">
+
+    <div class="login-card">
+
+        <a href="index.html" class="back-home">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Website
+        </a>
+
+        <div class="login-brand">
+            <img
+                src="https://i.ibb.co/60g82LzR/Army-Welfare-Education-Society-logo-1.png"
+                alt="APS Logo">
+
+            <div>
+                <strong>APS ROBOTICS</strong>
+                <span>CHAMPIONSHIP 2026</span>
+            </div>
+        </div>
+
+        <span class="login-badge">
+            <i class="fa-solid fa-lock"></i>
+            REGISTRATION DEPARTMENT ACCESS
+        </span>
+
+        <h1>Registration Department Login</h1>
+
+        <p>
+            Sign in with your authorized registration department account
+            to access the control center.
+        </p>
+
+        <form id="loginForm" novalidate>
+
+            <label class="login-field">
+                <span>
+                    <i class="fa-solid fa-envelope"></i>
+                    Email Address
+                </span>
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="registration@example.com"
+                    autocomplete="username"
+                    required>
+            </label>
+
+            <label class="login-field">
+                <span>
+                    <i class="fa-solid fa-lock"></i>
+                    Password
+                </span>
+                <div class="password-wrap">
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter password"
+                        autocomplete="current-password"
+                        required>
+                    <button
+                        type="button"
+                        id="togglePassword"
+                        class="toggle-password"
+                        tabindex="-1"
+                        title="Show password">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
+            </label>
+
+            <div id="loginMessage" class="login-message"></div>
+
+            <button type="submit" id="loginBtn" class="login-btn">
+                <span class="login-normal">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Sign In
+                </span>
+                <span class="login-loading">
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    Signing in...
+                </span>
+            </button>
+
+            <button
+                type="button"
+                id="forgotPasswordBtn"
+                class="forgot-link">
+                Forgot your password?
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+<script type="module" src="admin-login.js"></script>
+<script src="production.js"></script>
+</body>
+</html>
