@@ -1,0 +1,10 @@
+name = "robokriti-2026"
+compatibility_date = "2026-08-23"
+
+[vars]
+SITE_NAME = "APS LBS RoboKriti 2026"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "robokriti-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
