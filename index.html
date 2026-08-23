@@ -1,114 +1,1428 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#020607">
-<meta name="description" content="APS Tinkering Lab Robokriti 2026 — a technical robotics competition by APS Tinkering Lab, Lucknow.">
-<title>APS Tinkering Lab Robokriti 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="production.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="theme-color"
+    content="#030712"
+>
+
+<meta
+    name="description"
+    content="APS Tinkering Lab Robokriti 2026 Registration Successful"
+>
+
+<title>
+    Registration Successful | APS Tinkering Lab Robokriti 2026
+</title>
+
+
+<!-- Fonts -->
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+
+<style>
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    /* =====================================================
+       BODY
+    ===================================================== */
+
+    body {
+
+        min-height: 100vh;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 30px 18px;
+
+        overflow-x: hidden;
+
+        color: #ffffff;
+
+        font-family: "Poppins", sans-serif;
+
+        background:
+
+            radial-gradient(
+                circle at 15% 20%,
+                rgba(25, 230, 255, .13),
+                transparent 28%
+            ),
+
+            radial-gradient(
+                circle at 85% 80%,
+                rgba(25, 230, 255, .10),
+                transparent 30%
+            ),
+
+            linear-gradient(
+                135deg,
+                #02050c 0%,
+                #06101c 50%,
+                #02050c 100%
+            );
+
+        position: relative;
+
+    }
+
+
+    /* =====================================================
+       BACKGROUND GRID
+    ===================================================== */
+
+    body::before {
+
+        content: "";
+
+        position: fixed;
+
+        inset: 0;
+
+        pointer-events: none;
+
+        opacity: .18;
+
+        background-image:
+
+            linear-gradient(
+                rgba(25, 230, 255, .08) 1px,
+                transparent 1px
+            ),
+
+            linear-gradient(
+                90deg,
+                rgba(25, 230, 255, .08) 1px,
+                transparent 1px
+            );
+
+        background-size:
+            45px 45px;
+
+        mask-image:
+            linear-gradient(
+                to bottom,
+                transparent,
+                black 20%,
+                black 80%,
+                transparent
+            );
+
+    }
+
+
+    /* =====================================================
+       FLOATING GLOW
+    ===================================================== */
+
+    .glow {
+
+        position: fixed;
+
+        width: 320px;
+        height: 320px;
+
+        border-radius: 50%;
+
+        background: rgba(25, 230, 255, .08);
+
+        filter: blur(70px);
+
+        pointer-events: none;
+
+        animation:
+            floatGlow 7s ease-in-out infinite;
+
+    }
+
+
+    .glow.one {
+
+        top: -140px;
+        left: -120px;
+
+    }
+
+
+    .glow.two {
+
+        bottom: -150px;
+        right: -100px;
+
+        animation-delay: -3s;
+
+    }
+
+
+    @keyframes floatGlow {
+
+        0%,
+        100% {
+            transform: translate(0, 0);
+        }
+
+        50% {
+            transform: translate(25px, -20px);
+        }
+
+    }
+
+
+    /* =====================================================
+       MAIN CARD
+    ===================================================== */
+
+    .card {
+
+        width: min(
+            680px,
+            100%
+        );
+
+        position: relative;
+
+        padding:
+            42px
+            34px
+            34px;
+
+        text-align: center;
+
+        border:
+
+            1px solid
+            rgba(25, 230, 255, .22);
+
+        border-radius: 30px;
+
+        background:
+
+            linear-gradient(
+                145deg,
+                rgba(10, 24, 39, .96),
+                rgba(4, 12, 23, .94)
+            );
+
+        box-shadow:
+
+            0 35px 100px
+            rgba(0, 0, 0, .65),
+
+            0 0 60px
+            rgba(25, 230, 255, .06),
+
+            inset 0 1px 0
+            rgba(255, 255, 255, .06);
+
+        backdrop-filter:
+            blur(18px);
+
+        -webkit-backdrop-filter:
+            blur(18px);
+
+        overflow: hidden;
+
+        animation:
+            cardIn .8s
+            cubic-bezier(.2,.8,.2,1)
+            both;
+
+    }
+
+
+    @keyframes cardIn {
+
+        from {
+
+            opacity: 0;
+
+            transform:
+                translateY(30px)
+                scale(.96);
+
+        }
+
+        to {
+
+            opacity: 1;
+
+            transform:
+                translateY(0)
+                scale(1);
+
+        }
+
+    }
+
+
+    /* =====================================================
+       TOP LINE
+    ===================================================== */
+
+    .card::before {
+
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 3px;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                #19e6ff,
+                transparent
+            );
+
+        box-shadow:
+            0 0 20px
+            rgba(25, 230, 255, .8);
+
+    }
+
+
+    /* =====================================================
+       CORNER DECORATIONS
+    ===================================================== */
+
+    .corner {
+
+        position: absolute;
+
+        width: 45px;
+        height: 45px;
+
+        border-color:
+            rgba(25, 230, 255, .5);
+
+        pointer-events: none;
+
+    }
+
+
+    .corner.top-left {
+
+        top: 18px;
+        left: 18px;
+
+        border-top: 1px solid;
+        border-left: 1px solid;
+
+    }
+
+
+    .corner.top-right {
+
+        top: 18px;
+        right: 18px;
+
+        border-top: 1px solid;
+        border-right: 1px solid;
+
+    }
+
+
+    .corner.bottom-left {
+
+        bottom: 18px;
+        left: 18px;
+
+        border-bottom: 1px solid;
+        border-left: 1px solid;
+
+    }
+
+
+    .corner.bottom-right {
+
+        bottom: 18px;
+        right: 18px;
+
+        border-bottom: 1px solid;
+        border-right: 1px solid;
+
+    }
+
+
+    /* =====================================================
+       BRAND
+    ===================================================== */
+
+    .brand {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 14px;
+
+        margin-bottom: 22px;
+
+    }
+
+
+    .logo {
+
+        width: 72px;
+        height: 72px;
+
+        object-fit: contain;
+
+        filter:
+            drop-shadow(
+                0 0 14px
+                rgba(25, 230, 255, .25)
+            );
+
+        animation:
+            logoFloat 4s ease-in-out infinite;
+
+    }
+
+
+    @keyframes logoFloat {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+
+    }
+
+
+    .brand-text {
+
+        text-align: left;
+
+    }
+
+
+    .brand-text small {
+
+        display: block;
+
+        color: #718198;
+
+        font-size: 10px;
+
+        letter-spacing: 2.5px;
+
+        text-transform: uppercase;
+
+    }
+
+
+    .brand-text strong {
+
+        display: block;
+
+        margin-top: 3px;
+
+        font-family: "Orbitron", sans-serif;
+
+        font-size: 14px;
+
+        letter-spacing: .8px;
+
+        color: #ffffff;
+
+    }
+
+
+    /* =====================================================
+       SUCCESS ICON
+    ===================================================== */
+
+    .success-wrapper {
+
+        display: flex;
+
+        justify-content: center;
+
+        margin:
+            8px
+            0
+            25px;
+
+    }
+
+
+    .success-ring {
+
+        width: 104px;
+        height: 104px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 50%;
+
+        border:
+            1px solid
+            rgba(25, 230, 255, .45);
+
+        background:
+            rgba(25, 230, 255, .06);
+
+        box-shadow:
+
+            0 0 0 8px
+            rgba(25, 230, 255, .025),
+
+            0 0 35px
+            rgba(25, 230, 255, .18);
+
+        animation:
+            successPulse 2.5s
+            ease-in-out infinite;
+
+    }
+
+
+    @keyframes successPulse {
+
+        0%,
+        100% {
+
+            box-shadow:
+
+                0 0 0 8px
+                rgba(25, 230, 255, .025),
+
+                0 0 35px
+                rgba(25, 230, 255, .18);
+
+        }
+
+        50% {
+
+            box-shadow:
+
+                0 0 0 15px
+                rgba(25, 230, 255, .015),
+
+                0 0 55px
+                rgba(25, 230, 255, .28);
+
+        }
+
+    }
+
+
+    .check {
+
+        width: 70px;
+        height: 70px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 50%;
+
+        background:
+            linear-gradient(
+                145deg,
+                #19e6ff,
+                #0cb9d2
+            );
+
+        color: #021019;
+
+        font-size: 38px;
+
+        font-weight: 800;
+
+        box-shadow:
+            0 0 35px
+            rgba(25, 230, 255, .4);
+
+        animation:
+            checkIn .7s
+            .3s
+            cubic-bezier(.2,.8,.2,1)
+            both;
+
+    }
+
+
+    @keyframes checkIn {
+
+        from {
+
+            opacity: 0;
+
+            transform:
+                scale(.3)
+                rotate(-25deg);
+
+        }
+
+        to {
+
+            opacity: 1;
+
+            transform:
+                scale(1)
+                rotate(0);
+
+        }
+
+    }
+
+
+    /* =====================================================
+       TITLE
+    ===================================================== */
+
+    h1 {
+
+        font-family: "Orbitron", sans-serif;
+
+        font-size: clamp(
+            25px,
+            5vw,
+            39px
+        );
+
+        line-height: 1.2;
+
+        letter-spacing: -.5px;
+
+        margin-bottom: 14px;
+
+    }
+
+
+    h1 span {
+
+        color: #19e6ff;
+
+        text-shadow:
+            0 0 22px
+            rgba(25, 230, 255, .35);
+
+    }
+
+
+    .subtitle {
+
+        max-width: 520px;
+
+        margin:
+            0
+            auto
+            26px;
+
+        color: #9aa9bc;
+
+        font-size: 14px;
+
+        line-height: 1.8;
+
+    }
+
+
+    /* =====================================================
+       STATUS LABEL
+    ===================================================== */
+
+    .status-label {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        padding:
+            7px
+            12px;
+
+        margin-bottom: 20px;
+
+        border:
+            1px solid
+            rgba(78, 231, 161, .22);
+
+        border-radius: 999px;
+
+        background:
+            rgba(78, 231, 161, .06);
+
+        color: #4ee7a1;
+
+        font-size: 10px;
+
+        font-weight: 700;
+
+        letter-spacing: 1.4px;
+
+        text-transform: uppercase;
+
+    }
+
+
+    .status-dot {
+
+        width: 7px;
+        height: 7px;
+
+        border-radius: 50%;
+
+        background: #4ee7a1;
+
+        box-shadow:
+            0 0 10px
+            rgba(78, 231, 161, .8);
+
+    }
+
+
+    /* =====================================================
+       REGISTRATION ID
+    ===================================================== */
+
+    .id-box {
+
+        position: relative;
+
+        padding:
+            18px
+            20px;
+
+        margin:
+            10px
+            auto
+            24px;
+
+        border:
+            1px dashed
+            rgba(25, 230, 255, .42);
+
+        border-radius: 16px;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(25, 230, 255, .06),
+                rgba(25, 230, 255, .015)
+            );
+
+    }
+
+
+    .id-label {
+
+        display: block;
+
+        margin-bottom: 7px;
+
+        color: #718198;
+
+        font-size: 9px;
+
+        font-weight: 700;
+
+        letter-spacing: 2px;
+
+        text-transform: uppercase;
+
+    }
+
+
+    .id {
+
+        display: block;
+
+        color: #19e6ff;
+
+        font-family: "Orbitron", sans-serif;
+
+        font-size: clamp(
+            13px,
+            3vw,
+            17px
+        );
+
+        font-weight: 800;
+
+        letter-spacing: 1px;
+
+        word-break: break-word;
+
+        text-shadow:
+            0 0 15px
+            rgba(25, 230, 255, .25);
+
+    }
+
+
+    /* =====================================================
+       EVENT INFO
+    ===================================================== */
+
+    .event-info {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .event-item {
+
+        padding: 12px;
+
+        border:
+            1px solid
+            rgba(255,255,255,.07);
+
+        border-radius: 12px;
+
+        background:
+            rgba(255,255,255,.025);
+
+    }
+
+
+    .event-item strong {
+
+        display: block;
+
+        margin-bottom: 3px;
+
+        color: #ffffff;
+
+        font-size: 12px;
+
+    }
+
+
+    .event-item span {
+
+        color: #728196;
+
+        font-size: 10px;
+
+    }
+
+
+    /* =====================================================
+       BUTTONS
+    ===================================================== */
+
+    .actions {
+
+        display: flex;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+    }
+
+
+    .btn {
+
+        min-width: 170px;
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 8px;
+
+        padding:
+            13px
+            18px;
+
+        border:
+            1px solid
+            rgba(25,230,255,.4);
+
+        border-radius: 11px;
+
+        text-decoration: none;
+
+        font-size: 12px;
+
+        font-weight: 800;
+
+        transition:
+            transform .2s ease,
+            box-shadow .2s ease,
+            background .2s ease;
+
+    }
+
+
+    .btn.primary {
+
+        color: #021019;
+
+        background:
+            linear-gradient(
+                135deg,
+                #19e6ff,
+                #0cb9d2
+            );
+
+        box-shadow:
+            0 10px 28px
+            rgba(25,230,255,.18);
+
+    }
+
+
+    .btn.secondary {
+
+        color: #ffffff;
+
+        background:
+            rgba(255,255,255,.04);
+
+        border-color:
+            rgba(255,255,255,.10);
+
+    }
+
+
+    .btn:hover {
+
+        transform:
+            translateY(-3px);
+
+    }
+
+
+    .btn.primary:hover {
+
+        box-shadow:
+            0 14px 35px
+            rgba(25,230,255,.28);
+
+    }
+
+
+    .btn.secondary:hover {
+
+        background:
+            rgba(255,255,255,.08);
+
+        border-color:
+            rgba(255,255,255,.18);
+
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    .footer {
+
+        margin-top: 25px;
+
+        padding-top: 18px;
+
+        border-top:
+            1px solid
+            rgba(255,255,255,.06);
+
+        color: #526176;
+
+        font-size: 9px;
+
+        line-height: 1.7;
+
+        letter-spacing: .4px;
+
+    }
+
+
+    .footer b {
+
+        color: #77879d;
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 560px) {
+
+        body {
+
+            padding:
+                18px 12px;
+
+        }
+
+
+        .card {
+
+            padding:
+                34px
+                18px
+                22px;
+
+            border-radius: 24px;
+
+        }
+
+
+        .corner {
+
+            width: 30px;
+            height: 30px;
+
+        }
+
+
+        .brand {
+
+            gap: 10px;
+
+        }
+
+
+        .logo {
+
+            width: 58px;
+            height: 58px;
+
+        }
+
+
+        .brand-text strong {
+
+            font-size: 11px;
+
+        }
+
+
+        .brand-text small {
+
+            font-size: 8px;
+
+            letter-spacing: 1.5px;
+
+        }
+
+
+        .success-ring {
+
+            width: 90px;
+            height: 90px;
+
+        }
+
+
+        .check {
+
+            width: 61px;
+            height: 61px;
+
+            font-size: 32px;
+
+        }
+
+
+        .event-info {
+
+            grid-template-columns:
+                1fr;
+
+        }
+
+
+        .btn {
+
+            width: 100%;
+
+        }
+
+
+        .actions {
+
+            flex-direction: column;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       REDUCED MOTION
+    ===================================================== */
+
+    @media (
+        prefers-reduced-motion: reduce
+    ) {
+
+        *,
+        *::before,
+        *::after {
+
+            animation-duration:
+                .01ms !important;
+
+            animation-iteration-count:
+                1 !important;
+
+            transition-duration:
+                .01ms !important;
+
+        }
+
+    }
+
+</style>
+<link rel="stylesheet" href="/production.css">
 <link rel="manifest" href="site.webmanifest">
 
 <link rel="stylesheet" href="/premium-ui.css">
 <link rel="stylesheet" href="/nova-ui.css">
-</head>
-<body>
-<div id="preloader" class="preloader"><div class="loader-core"><span></span><span></span><span></span></div><div class="loader-title">APS TINKERING LAB ROBOKRITI</div><div class="loader-sub"> • 2026 // INITIALIZING</div></div>
+</head><body><!-- Ambient effects -->
 
-<header class="site-header" id="siteHeader">
-  <a class="brand" href="#home"><img src="https://i.ibb.co/60g82LzR/Army-Welfare-Education-Society-logo-1.png" alt="APS Logo"><span><b>APS Tinkering Lab</b><small>RoboKriti 2026</small></span></a>
-  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  <nav id="mainNav" aria-label="Main navigation">
-    <a class="active" href="#home">Home</a><a href="#about">About</a><a href="#events">Arenas</a><a href="#leadership">Leadership</a><a href="#team">Our Team</a><a href="#operations">Operations</a><a href="#contact">Contact</a><a class="nav-register" href="/registration/">Register</a>
-  </nav>
-</header>
+<div class="glow one"></div>
 
-<main>
-<section id="home" class="hero tech-hero">
-  <div class="lux-particles" aria-hidden="true"></div><div class="hero-grid"></div><div class="hero-orbit orbit-a"></div><div class="hero-orbit orbit-b"></div><div class="hero-scan"></div>
-  <div class="hero-content">
-    <div class="phase-label">APS TINKERING LAB // LUCKNOW // 2026</div>
-    <div class="hero-kicker">A FUTURE-TECH ROBOTICS FESTIVAL</div>
-    <h1 id="adminHomeTitle">BUILD.<br><span>BATTLE.</span><br>INNOVATE.</h1>
-    <p id="adminHomeDescription">Design machines. Engineer solutions. Enter the arena. APS Tinkering Lab Robokriti 2026 brings young innovators together for a high-energy robotics experience built around speed, control, power and strategy.</p>
-    <div class="hero-actions"><a class="btn primary" href="/registration/" id="adminHomeButton">REGISTER YOUR TEAM <span>↗</span></a><a class="btn ghost" href="#events">EXPLORE THE ARENAS <span>↓</span></a></div>
-    <div class="hero-meta"><span>01 // SCHOOL LEVEL</span><span>04 // ROBOTICS ARENAS</span><span>01 // CHAMPIONSHIP</span></div>
-  </div>
-  <div class="hero-visual" aria-hidden="true"><div class="visual-label">SYSTEM / ROBOTICS</div><div class="visual-core"><span>R</span></div><div class="visual-line line-1"></div><div class="visual-line line-2"></div><div class="visual-line line-3"></div></div>
-</section>
-
-<section class="phase-strip"><div><small>PHASE_01</small><strong>ORIGIN</strong><span>Born inside the APS Tinkering Lab</span></div><div><small>PHASE_02</small><strong>ARENAS</strong><span>Four machines. Four challenges.</span></div><div><small>PHASE_03</small><strong>LEADERSHIP</strong><span>Principal & Mentor guidance</span></div><div><small>PHASE_04</small><strong>ADMINISTRATION</strong><span>Core leadership & operations</span></div></section>
-
-<section id="about" class="section editorial-section">
-  <div class="section-head"><span>PHASE_01 // ORIGIN</span><h2>Where ideas become <b>machines.</b></h2><p id="adminAboutDescription">APS Tinkering Lab Robokriti 2026 is a hands-on robotics competition designed to encourage creativity, engineering, teamwork and problem solving.</p></div>
-  <div class="origin-grid"><div class="origin-number">01</div><div><h3>APS Tinkering Lab</h3><p>Our championship is designed around the spirit of experimentation: prototype, test, improve and compete. Every arena rewards a different engineering mindset.</p><div class="origin-points"><span>ENGINEERING</span><span>CONTROL</span><span>STRATEGY</span><span>TEAMWORK</span></div></div></div>
-</section>
-
-<section id="events" class="section arenas-section">
-  <div class="section-head"><span>PHASE_02 // ARENAS OF EXCELLENCE</span><h2>Choose your <b>battlefield.</b></h2><p>Explore each arena, read its dedicated rules and prepare your machine before registration.</p></div>
-  <div class="arena-grid">
-    <a class="arena-card arena-race" href="/arenas/robo-race/"><span class="arena-index">01</span><span class="arena-type">SPEED / PRECISION</span><h3>Robo Race</h3><p>Push acceleration, control and line discipline through a demanding robotic track.</p><span class="arena-link">ENTER ARENA ↗</span></a>
-    <a class="arena-card arena-saucer" href="/arenas/robo-soccer/"><span class="arena-index">02</span><span class="arena-type">CONTROL / TEAMWORK</span><h3>Robo Soccer</h3><p>Master robotic movement and scoring through controlled, tactical gameplay.</p><span class="arena-link">ENTER ARENA ↗</span></a>
-    <a class="arena-card arena-tug" href="/arenas/robot-tug-of-war/"><span class="arena-index">03</span><span class="arena-type">POWER / TRACTION</span><h3>Robot Tug of War</h3><p>Torque, grip and mechanical strength decide who controls the line.</p><span class="arena-link">ENTER ARENA ↗</span></a>
-    <a class="arena-card arena-war" href="/arenas/robo-war/"><span class="arena-index">04</span><span class="arena-type">STRATEGY / COMBAT</span><h3>Robo War</h3><p>Engineer a robust machine and outmaneuver your opponent inside the arena.</p><span class="arena-link">ENTER ARENA ↗</span></a>
-  </div>
-</section>
+<div class="glow two"></div>
 
 
-<section id="leadership" class="section leadership-section">
-  <div class="section-head"><span>PHASE_03 // LEADERSHIP MESSAGES</span><h2>Guidance from <b>the leadership.</b></h2><p>Principal and Mentor are presented independently from the championship's operational administration.</p></div>
-  <div class="leadership-feature-grid">
-    <article class="leadership-feature principal-feature"><div class="feature-index">01</div><div class="feature-tag">PRINCIPAL</div><h3 id="principalName">Mrs. Sadhana Devi</h3><p>Army Public School Lal Bahadur Shastri Marg, Lucknow</p><div class="feature-line"></div><span>VISION / DISCIPLINE / EXCELLENCE</span></article>
-    <article class="leadership-feature mentor-feature"><div class="feature-index">02</div><div class="feature-tag">MENTOR // TINKERING LAB</div><h3 id="mentorName">Akansha Rani</h3><p>APS Tinkering Lab</p><div class="feature-line"></div><span>GUIDANCE / INNOVATION / MENTORSHIP</span></article>
-  </div>
-</section>
+<!-- Main confirmation -->
 
-<section id="team" class="section team-section command-section">
-<div class="section-head"><span>PHASE_04 // OUR TEAM</span><h2>The people behind <b>the mission.</b></h2><p>Meet the event coordinators and core leadership responsible for APS Tinkering Lab Robokriti 2026.</p></div>
-<div class="command-group"><div class="command-group-head"><span>01</span><div><small>EVENT COORDINATORS</small><h3>Arena Command</h3></div></div><div class="core-grid core-grid-four">
-<article class="core-card named-card"><span>ARENA_01</span><small>ROBO RACE</small><h3>Event Coordinator</h3><strong>Mohit Singh Kushwaha</strong><p>Coordinates Robo Race briefing, inspection, track readiness and round execution.</p></article>
-<article class="core-card named-card"><span>ARENA_02</span><small>ROBO SOCCER</small><h3>Event Coordinator</h3><strong>Bidit Singh</strong><p>Coordinates Robo Soccer briefing, match flow, scoring and arena readiness.</p></article>
-<article class="core-card named-card"><span>ARENA_03</span><small>ROBO WAR</small><h3>Event Coordinator</h3><strong>Vaibhav Singh Pandey</strong><p>Coordinates Robo War safety inspection, match flow, judging and arena discipline.</p></article>
-<article class="core-card named-card"><span>ARENA_04</span><small>TUG OF WAR</small><h3>Event Coordinator</h3><strong>Vaishnav</strong><p>Coordinates Tug of War inspection, starting protocol, pairings and competition procedure.</p></article>
-</div></div>
-<div class="command-group"><div class="command-group-head"><span>02</span><div><small>CORE LEADERSHIP & ADMINISTRATION</small><h3>Championship Command</h3></div></div><div class="core-grid core-grid-four">
-<article class="core-card named-card"><span>CORE_01</span><small>ADMINISTRATION</small><h3>Secretary</h3><strong>Aishwary Joshi</strong><p>Maintains official records, communication and administrative coordination.</p></article>
-<article class="core-card named-card"><span>CORE_02</span><small>EVENT COMMAND</small><h3>Event Coordinator</h3><strong>Meet Lohmar</strong><p>Coordinates championship scheduling, event operations and overall execution.</p></article>
-<article class="core-card named-card"><span>CORE_03</span><small>ENGINEERING</small><h3>Technical Head</h3><strong>Ayush Singh Rajput</strong><p>Leads technical inspection, robot specifications, equipment and engineering support.</p></article>
-<article class="core-card named-card"><span>CORE_04</span><small>MARKETING</small><h3>Marketing Head</h3><strong>Prateek Maurya</strong><p>Leads promotion, communication, media and championship outreach.</p></article>
-</div></div>
-</section>
+<main class="card">
 
-<section id="operations" class="section operations-section"><div class="section-head"><span>PHASE_05 // LOGISTICS & OPERATIONS</span><h2>Precision behind <b>the spectacle.</b></h2><p>From arena setup to participant movement, the operational network keeps RoboKriti running with discipline and technical precision.</p></div><div class="operations-grid luxury-ops-grid">
-<article><span>OPS_01</span><h3>Event Command</h3><p>Maintain, coordinate, inspection and operational readiness.</p><ul><li>Secretary — Aishwary Joshi</li><li>Event Coordinator — Meet Lohmar</li><li>APS Tinkering lab Desk</li></ul></article>
-<article><span>OPS_02</span><h3>Arena Network</h3><p>Four dedicated coordination channels keep every event synchronized.</p><ul><li>Robo Race</li><li>Robo Soccer</li><li>Robot Tug of War</li><li>Robo War</li></ul></article>
-<article><span>OPS_03</span><h3>Digital Command</h3><p>The web layer connects registration, information and participant support.</p><ul><li>Technical Head — Ayush Singh Rajput</li><li>Marketing Head — Prateek maurya</li><li>Registration Department</li></ul></article>
-<article><span>OPS_04</span><h3>Human Support</h3><p>Every participant has a clear route for questions, help and official communication.</p><ul><li>Helping Department</li><li>Secretary — Aishwary Joshi</li><li>Event Coordinator — Meet Lohmar</li></ul></article>
-</div></section>
 
-<section class="section journey-section"><div class="section-head"><span>PHASE_06 // THE JOURNEY</span><h2>From registration to <b>arena.</b></h2></div><div class="journey"><div><b>01</b><span>REGISTER</span><p>Build your team and select your arena.</p></div><div><b>02</b><span>BUILD</span><p>Engineer and test your machine.</p></div><div><b>03</b><span>INSPECT</span><p>Pass technical and safety inspection.</p></div><div><b>04</b><span>COMPETE</span><p>Enter the arena and make your mark.</p></div></div></section>
+    <!-- Decorative corners -->
 
-<div id="messages">
-<section class="section message-section"><div class="section-head"><span>MESSAGE_01 // LEADERSHIP</span><h2>A message from <b>the Principal.</b></h2></div><div class="mentor-message"><div class="message-mark">“</div><div><p class="quote" id="msgPrincipalText">Loading message...</p><div class="mentor-sign"><strong id="msgPrincipalName">Mrs. Sadhana Devi</strong><span>Principal • Army Public School Lal Bahadur Shastri Marg, Lucknow</span></div></div></div></section>
-<section class="section message-section"><div class="section-head"><span>MESSAGE_02 // GUIDANCE</span><h2>A message from <b>our Mentor.</b></h2></div><div class="mentor-message"><div class="message-mark">“</div><div><p class="quote" id="msgMentorText">Loading message...</p><div class="mentor-sign"><strong id="msgMentorName">Ms. Akansha Rani</strong><span>Mentor • APS Tinkering Lab</span></div></div></div></section>
-<section class="section message-section"><div class="section-head"><span>MESSAGE_03 // COORDINATION</span><h2>A message from <b>the Coordinator.</b></h2></div><div class="mentor-message"><div class="message-mark">“</div><div><p class="quote" id="msgCoordText">Loading message...</p><div class="mentor-sign"><strong id="msgCoordName">Championship Coordination Team</strong><span>Championship Coordination</span></div></div></div></section>
-</div>
+    <div class="corner top-left"></div>
+    <div class="corner top-right"></div>
+    <div class="corner bottom-left"></div>
+    <div class="corner bottom-right"></div>
 
-<section id="contact" class="section contact-section"><div class="section-head"><span>PHASE_07 // CONTACT</span><h2>Connect with <b>the championship.</b></h2><p>Questions, registration support and event information are available through the official departments.</p></div><div class="contact-grid"><div class="contact-card"><small>SCHOOL</small><h3>Army Public School Lal Bahadur Shastri Marg</h3><p>Lucknow, Uttar Pradesh, India</p></div><div class="contact-card"><small>MENTOR • AKANSHA RANI</small><h3><a href="mailto:raniakansha551@gmail.com">raniakansha551@gmail.com</a></h3><p>APS Tinkering Lab</p></div><div class="contact-card"><small>HELPING DEPARTMENT</small><h3><a href="/help/">Open Help Center</a></h3><p>Submit a support request and receive a ticket ID.</p></div></div></section>
 
-<section class="final-cta"><div class="cta-grid"></div><span>THE JOURNEY CONCLUDES HERE</span><h2>Ready to <b>build the future?</b></h2><p>Register your team and choose the arena where your robot will compete.</p><a class="btn primary large" href="/registration/">REGISTER FOR RoboKriti 2026 ↗</a></section>
+    <!-- Brand -->
+
+    <div class="brand">
+
+        <img
+            class="logo"
+            src="https://i.ibb.co/60g82LzR/Army-Welfare-Education-Society-logo-1.png"
+            alt="Army Welfare Education Society Logo"
+        >
+
+        <div class="brand-text">
+
+            <small>
+                Army Public School
+            </small>
+
+            <strong>
+                APS TINKERING LAB
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- Success -->
+
+    <div class="success-wrapper">
+
+        <div class="success-ring">
+
+            <div class="check">
+                ✓
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Status -->
+
+    <div class="status-label">
+
+        <span class="status-dot"></span>
+
+        Registration Confirmed
+
+    </div>
+
+
+    <!-- Heading -->
+
+    <h1>
+        Registration
+        <span>Successful</span>
+    </h1>
+
+
+    <!-- Welcome message -->
+
+    <p
+        class="subtitle"
+        id="welcome"
+    >
+        Your team has been successfully registered
+        for APS Tinkering Lab Robokriti 2026.
+    </p>
+
+
+    <!-- Registration ID -->
+
+    <div class="id-box">
+
+        <span class="id-label">
+            Your Registration ID
+        </span>
+
+        <strong
+            class="id"
+            id="registrationId"
+        >
+            Registration submitted
+        </strong>
+
+    </div>
+
+
+    <!-- Event information -->
+
+    <div class="event-info">
+
+        <div class="event-item">
+
+            <strong>
+                🤖 Championship
+            </strong>
+
+            <span>
+                APS Tinkering Lab Robokriti 2026
+            </span>
+
+        </div>
+
+
+        <div class="event-item">
+
+            <strong>
+                🏫 Venue
+            </strong>
+
+            <span>
+                APS Lal Bahadur Shastri Marg
+            </span>
+
+        </div>
+
+
+        <div class="event-item">
+
+            <strong>
+                ⚙️ Organized By
+            </strong>
+
+            <span>
+                APS Tinkering Lab
+            </span>
+
+        </div>
+
+
+        <div class="event-item">
+
+            <strong>
+                📍 Location
+            </strong>
+
+            <span>
+                Lucknow, Uttar Pradesh
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- Actions -->
+
+    <div class="actions">
+
+        <a
+            class="btn primary"
+            href="/"
+        >
+            🏠 Back to Home
+        </a>
+
+
+        <a
+            class="btn secondary"
+            href="/registration/"
+        >
+            ➕ New Registration
+        </a>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <div class="footer">
+
+        <b>
+            APS Tinkering Lab Robokriti 2026
+        </b>
+
+        <br>
+
+        Please keep your Registration ID safe
+        for future communication and verification.
+
+    </div>
+
+
 </main>
 
-<footer class="footer" id="secretFooterTrigger" tabindex="0" aria-label="APS Robotics footer"><img src="https://i.ibb.co/60g82LzR/Army-Welfare-Education-Society-logo-1.png" alt="APS Logo"><div><b>APS Tinkering Lab Robokriti 2026</b><span>APS Tinkering Lab • Lucknow</span></div><div class="footer-status"><i></i> SYSTEM ONLINE</div></footer>
-<div id="secretAccess" class="secret-access" aria-hidden="true"><span>PRIVATE ACCESS // 5-CLICK</span><a href="/_private/helping/">Helping Department</a><a href="/_private/registration/">Registration Department</a><button id="closeSecret">×</button></div>
-<script type="module" src="home-content.js"></script>
-<script src="production.js"></script>
+
+<script>
+
+    /* =====================================================
+       REGISTRATION DATA
+    ===================================================== */
+
+    const registrationId =
+        sessionStorage.getItem(
+            "apsRegistrationId"
+        );
+
+
+    const registrationName =
+        sessionStorage.getItem(
+            "apsRegistrationName"
+        );
+
+
+    const idElement =
+        document.getElementById(
+            "registrationId"
+        );
+
+
+    const welcomeElement =
+        document.getElementById(
+            "welcome"
+        );
+
+
+    /* =====================================================
+       DISPLAY REGISTRATION ID
+    ===================================================== */
+
+    if (
+        registrationId &&
+        idElement
+    ) {
+
+        idElement.textContent =
+            registrationId;
+
+    }
+
+
+    /* =====================================================
+       DISPLAY NAME
+    ===================================================== */
+
+    if (
+        registrationName &&
+        welcomeElement
+    ) {
+
+        const safeName =
+            registrationName
+                .trim();
+
+
+        if (safeName) {
+
+            welcomeElement.textContent =
+                `Thank you, ${safeName}. Your registration has been submitted and is currently Pending Approval. Our team will review it and contact you soon.`;
+
+        }
+
+    }
+
+
+    // Keep the registration ID in session storage while this tab is open.
+    // This lets the user refresh the confirmation page without losing it.
+
+</script>
+<script src="/production.js"></script>
 
 <script src="/premium-ui.js" defer></script>
 <script src="/nova-ui.js" defer></script>
-</body>
-</html>
+</body></html>
